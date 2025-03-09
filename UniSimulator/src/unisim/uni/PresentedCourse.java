@@ -15,8 +15,8 @@ public class PresentedCourse {
         this.courseID = courseID;
         this.professorID = professorID;
         capacity = maxCapacity;
+        id = presentedCourseList.size() + 1;
         presentedCourseList.add(this);
-        id = presentedCourseList.size();
     }
 
     public static PresentedCourse findByID(int id) {

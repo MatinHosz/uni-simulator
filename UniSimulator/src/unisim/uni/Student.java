@@ -11,12 +11,13 @@ public class Student {
     public String studentID;
 
     public Student(int personID, int entranceYear, int majorID) {
+        id = studentList.size() + 1;
         this.personID = personID;
         this.entranceYear = entranceYear;
         this.majorID = majorID;
-        studentList.add(this);
-        id = studentList.size();
 
+        setStudentCode();
+        studentList.add(this);
     }
     public static Student findByID(int id) {
         for (Student student : studentList) {
@@ -26,7 +27,7 @@ public class Student {
         return null;
     }
     public void setStudentCode() {
-        double studentCode = (entranceYear * 1e5) + (majorID * 1e3) + id;
-        studentID = "" + studentCode;
+        long studentCode = ((entranceYear - 1000) * 100_000L) + (majorID * 1000L) + id;
+        studentID = String.valueOf(studentCode);
     }
 }

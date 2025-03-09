@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Major {
     public int id;
-    public static ArrayList<Major> majorList;
+    public static ArrayList<Major> majorList = new ArrayList<Major>();
     public String name;
     public final int capacity;
     public int numberOfStudent = 0;
@@ -12,8 +12,8 @@ public class Major {
     public Major(String name, int capacity) {
         this.name = name;
         this.capacity = capacity;
+        id = majorList.size() + 1;
         majorList.add(this);
-        id = majorList.size();
     }
 
     public void addStudent() {

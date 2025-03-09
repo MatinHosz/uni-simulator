@@ -4,15 +4,15 @@ import java.util.ArrayList;
 
 public class Person {
     public int id;
-    public static ArrayList<Person> personList;
+    public static ArrayList<Person> personList = new ArrayList<Person>();
     public String name;
     public String nationalID;
 
-    public Person(String Name, String NationalID) {
-        this.name = Name;
-        this.nationalID = NationalID;
+    public Person(String name, String nationalID) {
+        this.name = name;
+        this.nationalID = nationalID;
+        id = personList.size() + 1;
         personList.add(this);
-        id = personList.size();
     }
 
     public static Person findByID(int id) {

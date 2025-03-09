@@ -20,19 +20,20 @@ public class Transcript {
             }
         }
         else
-            System.out.print("PresentedCourseID doesn't exist");
+            System.out.println("PresentedCourseID doesn't exist");
     }
     public void printTranscript() {
         int personID = Student.findByID(studentID).personID;
         String name = Person.findByID(personID).name;
         String studentUniID = Student.findByID(studentID).studentID;
-        System.out.print(" " + name + "\t" + studentUniID);
+        System.out.println(" " + name + "\t\t" + studentUniID);
 
         transcript.forEach((presentedCourseID, grade) -> {
             int courseID = PresentedCourse.findByID(presentedCourseID).courseID;
             String courseTitle = Course.findByID(courseID).title;
             System.out.println(courseTitle + ": " + grade);
         });
+        System.out.println();
     }
     public double getGPA() {
         final double[] sumOfGrades = {0};
